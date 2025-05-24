@@ -59,18 +59,18 @@ if %errorlevel%==0 (
 del %TEMP_FILE%
 echo.
 
-@REM :: 测试 5：位置参数 5 2025
-@REM echo Testing: Month and year: 5 2025
-@REM %CAL_EXE% 5 2025 > %TEMP_FILE%
-@REM findstr /C:"May 2025" %TEMP_FILE% >nul
-@REM if %errorlevel%==0 (
-@REM     echo Test 5: PASS
-@REM ) else (
-@REM     echo Test 5: FAIL - Expected 'May 2025' not found
-@REM     type %TEMP_FILE%
-@REM )
-@REM del %TEMP_FILE%
-@REM echo.
+:: 测试 5：位置参数 2025 5
+echo Testing: Month and year: 2025 5
+%CAL_EXE% 2025 5> %TEMP_FILE%
+findstr /C:"May 2025" %TEMP_FILE% >nul
+if %errorlevel%==0 (
+    echo Test 5: PASS
+) else (
+    echo Test 5: FAIL - Expected 'May 2025' not found
+    type %TEMP_FILE%
+)
+del %TEMP_FILE%
+echo.
 
 :: 测试 6：-A 2（当前月之后2个月）
 echo Testing: -A 2
