@@ -35,7 +35,7 @@ echo.
 
 :: 测试 3：-m 5
 echo Testing: -m 5
-%CAL_EXE% -m 5 > %TEMP_FILE%
+"%CAL_EXE%" -m 5 > "%TEMP_FILE%"
 findstr /C:"May 2025" %TEMP_FILE% >nul
 if %errorlevel%==0 (
     echo Test 3: PASS
@@ -61,7 +61,8 @@ echo.
 
 :: 测试 5：位置参数 2025 5
 echo Testing: Month and year: 2025 5
-%CAL_EXE% 2025 5> %TEMP_FILE%
+call "%CAL_EXE%" 2025 5 > %TEMP_FILE%
+
 findstr /C:"May 2025" %TEMP_FILE% >nul
 if %errorlevel%==0 (
     echo Test 5: PASS
